@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Infrastructure coverage</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
+        rel='stylesheet' />
+</head>
+
+<body>
+    <p id="debug"></p>
+
+    <fieldset id="infrastructure" onclick="update_map()">
+        <legend>Infrastructure type:</legend>
+
+        <div>
+            <input type="checkbox" id="telia_hfc" name="telia" value="hfc" checked />
+            <label for="telia_hfc">Telia: Hybrid Fiber Coax / DOCSIS</label>
+        </div>
+        <div>
+            <input type="checkbox" id="telia_collective" name="telia" value="collective" />
+            <label for="telia_hfc">Telia: collective agreement</label>
+        </div>
+        <div>
+            <input type="checkbox" id="telia_fiber" name="telia" value="fiber" />
+            <label for="telia_hfc">Telia: Fiber</label>
+        </div>
+        <div>
+            <input type="checkbox" id="vikenfiber_inhouse" name="vikenfiber" value="inhouse" />
+            <label for="vikenfiber_inhouse">Altibox: In house</label>
+        </div>
+        <div>
+            <input type="checkbox" id="vikenfiber_border" name="vikenfiber" value="border" />
+            <label for="vikenfiber_border">Altibox: At border</label>
+        </div>
+        <div>
+            <input type="checkbox" id="vikenfiber_away" name="vikenfiber" value="away" />
+            <label for="vikenfiber_away">Altibox: Further away</label>
+        </div>
+
+        <div>
+            <input type="checkbox" id="no_coverage" name="no_coverage" value="no_coverage" />
+            <label for="no_coverage">No infrastructure coverage</label>
+        </div>
+
+    </fieldset>
+
+    <fieldset id="logic" onclick="update_map()">
+        <legend>Combination type:</legend>
+
+        <div>
+            <input type="radio" id="logic_or" name="logic" value="or" checked />
+            <label for="logic_or">OR</label>
+        </div>
+
+        <div>
+            <input type="radio" id="logic_and" name="logic" value="and" />
+            <label for="logic_and">AND</label>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Datapoint count:</legend>
+        <p id="datapoint_count"></p>
+    </fieldset>
+
+    <div id="map" style="width: 600px; height: 400px;"></div>
+    <script src="index.js"></script>
+</body>
+
+</html>
