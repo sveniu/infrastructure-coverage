@@ -16,37 +16,44 @@
 <body>
     <p id="debug"></p>
 
-    <fieldset id="infrastructure" onclick="update_map()">
-        <legend>Infrastructure type:</legend>
+    <fieldset id="coverage" onclick="update_map()">
+        <legend>Coverage type:</legend>
 
         <div>
-            <input type="checkbox" id="telia_hfc" name="telia" value="hfc" checked />
-            <label for="telia_hfc">Telia: Hybrid Fiber Coax / DOCSIS</label>
+            <input type="checkbox" id="telia_none" name="telia" value="TELIA_NONE" />
+            <label for="telia_hfc">Telia: No coverage</label>
         </div>
         <div>
-            <input type="checkbox" id="telia_collective" name="telia" value="collective" />
+            <input type="checkbox" id="telia_hfc" name="telia" value="TELIA_HFC" checked />
+            <label for="telia_hfc">Telia: Standard Hybrid Fiber Coax / DOCSIS</label>
+        </div>
+        <div>
+            <input type="checkbox" id="telia_collective" name="telia" value="TELIA_COLLECTIVE" />
             <label for="telia_hfc">Telia: collective agreement</label>
         </div>
         <div>
-            <input type="checkbox" id="telia_fiber" name="telia" value="fiber" />
+            <input type="checkbox" id="telia_fiber" name="telia" value="TELIA_FIBER" />
             <label for="telia_hfc">Telia: Fiber</label>
         </div>
         <div>
-            <input type="checkbox" id="vikenfiber_inhouse" name="vikenfiber" value="inhouse" />
+            <input type="checkbox" id="vikenfiber_inhouse" name="vikenfiber" value="ALTIBOX_NONE" />
+            <label for="vikenfiber_inhouse">Altibox: No coverage</label>
+        </div>
+        <div>
+            <input type="checkbox" id="vikenfiber_inhouse" name="vikenfiber" value="ALTIBOX_INHOUSE" />
             <label for="vikenfiber_inhouse">Altibox: In house</label>
         </div>
         <div>
-            <input type="checkbox" id="vikenfiber_border" name="vikenfiber" value="border" />
-            <label for="vikenfiber_border">Altibox: At border</label>
+            <input type="checkbox" id="vikenfiber_border" name="vikenfiber" value="ALTIBOX_TOWALL" />
+            <label for="vikenfiber_border">Altibox: To wall</label>
         </div>
         <div>
-            <input type="checkbox" id="vikenfiber_away" name="vikenfiber" value="away" />
+            <input type="checkbox" id="vikenfiber_border" name="vikenfiber" value="ALTIBOX_TOBORDER" />
+            <label for="vikenfiber_border">Altibox: To border</label>
+        </div>
+        <div>
+            <input type="checkbox" id="vikenfiber_away" name="vikenfiber" value="ALTIBOX_AWAY" />
             <label for="vikenfiber_away">Altibox: Further away</label>
-        </div>
-
-        <div>
-            <input type="checkbox" id="no_coverage" name="no_coverage" value="no_coverage" />
-            <label for="no_coverage">No infrastructure coverage</label>
         </div>
 
     </fieldset>
@@ -55,12 +62,12 @@
         <legend>Combination type:</legend>
 
         <div>
-            <input type="radio" id="logic_or" name="logic" value="or" checked />
+            <input type="radio" id="logic_or" name="logic" value="LOGIC_OR" checked />
             <label for="logic_or">OR</label>
         </div>
 
         <div>
-            <input type="radio" id="logic_and" name="logic" value="and" />
+            <input type="radio" id="logic_and" name="logic" value="LOGIC_AND" />
             <label for="logic_and">AND</label>
         </div>
     </fieldset>
@@ -70,7 +77,8 @@
         <p id="datapoint_count"></p>
     </fieldset>
 
-    <div id="map" style="width: 600px; height: 400px;"></div>
+    <div id="map" style="width: 800px; height: 600px;"></div>
+
     <script src="index.js"></script>
 </body>
 
